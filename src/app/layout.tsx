@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import localFont from "next/font/local";
 
-import "./globals.css";
-
 import { cx } from "#/lib/cx";
+
+import "./globals.css";
 
 const sans = Inter({
   variable: "--font-inter",
