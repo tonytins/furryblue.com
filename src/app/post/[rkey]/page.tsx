@@ -1,16 +1,40 @@
+import { ArrowLeftIcon } from "lucide-react";
 import Markdown from "react-markdown";
+import { type Metadata } from "next";
+import Link from "next/link";
 import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
-import Link from "next/link";
 import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
 
 import { Code, Paragraph, SANS, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
 import { cx } from "#/lib/cx";
-import { ArrowLeftIcon } from "lucide-react";
 
 export const dynamic = "force-static";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ rkey: string }>;
+}): Promise<Metadata> {
+  const { rkey } = await params;
+
+  const post = await bsky.get("com.atproto.repo.getRecord", {
+    params: {
+      repo: MY_DID,
+      rkey: rkey,
+      collection: "com.whtwnd.blog.entry",
+    },
+  });
+
+  const entry = post.data.value as ComWhtwndBlogEntry.Record;
+
+  return {
+    title: entry.title + "— mozzius.dev",
+    authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
+  };
+}
 
 export default async function BlogPage({
   params,
@@ -34,8 +58,12 @@ export default async function BlogPage({
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">
         <article className="w-full">
           <div className="space-y-4 w-full pb-2">
-            <Link href="/" className="hover:underline hover:underline-offset-4 font-medium">
-              <ArrowLeftIcon className="inline size-4 align-middle mb-px mr-1" />Back
+            <Link
+              href="/"
+              className="hover:underline hover:underline-offset-4 font-medium"
+            >
+              <ArrowLeftIcon className="inline size-4 align-middle mb-px mr-1" />
+              Back
             </Link>
             <Title>{entry.title}</Title>
             <Paragraph>
@@ -94,12 +122,13 @@ export default async function BlogPage({
               ),
               li: (props) => <li className="leading-7" {...props} />,
               code: (props) => {
-                const { children, className, node, ...rest } = props;
+                const { children, className, ...rest } = props;
                 const match = /language-(\w+)/.exec(className || "");
                 if (match) {
                   return (
                     <SyntaxHighlighter
                       {...rest}
+                      // eslint-disable-next-line react/no-children-prop
                       children={String(children).replace(/\n$/, "")}
                       lang={match[1]}
                       className="!mt-8 text-sm rounded !max-w-full overflow-hidden"
