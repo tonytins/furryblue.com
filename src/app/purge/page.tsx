@@ -1,6 +1,7 @@
 import { purgeCache } from "./actions";
 
-export default function Purge() {
+export default async function Purge({searchParams}: {searchParams: Promise<{error?: string}>}) {
+  const { error } = await searchParams;
   return (
     <form
       action={purgeCache}
@@ -13,6 +14,7 @@ export default function Purge() {
         placeholder="Password"
         className="p-2 border rounded-xs"
       />
+      {error && <p className="text-red-500">wrong password mate</p>}
       <button type="submit" className="p-2 border rounded-xs">
         Purge
       </button>
