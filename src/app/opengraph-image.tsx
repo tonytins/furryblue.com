@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = {
@@ -7,6 +9,9 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
+  const fontData = await readFile(
+    join(process.cwd(), "./fonts/LibreBaskerville-Bold.ttf"),
+  ).then((res) => Uint8Array.from(res).buffer);
   return new ImageResponse(
     (
       <div tw="h-full w-full bg-white flex flex-col justify-center items-center">
@@ -27,9 +32,7 @@ export default async function OpenGraphImage() {
       fonts: [
         {
           name: "Libre Baskerville",
-          data: await fetch(
-            new URL("./fonts/LibreBaskerville-Bold.ttf", import.meta.url),
-          ).then((res) => res.arrayBuffer()),
+          data: fontData,
         },
       ],
     },
