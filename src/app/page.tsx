@@ -3,7 +3,6 @@ import { siBluesky as BlueskyIcon, siGithub as GithubIcon } from "simple-icons";
 import { PostList } from "#/components/post-list";
 import { Title } from "#/components/typography";
 import { MY_DID } from "#/lib/bsky";
-import { cx } from "#/lib/cx";
 
 export const dynamic = "force-static";
 

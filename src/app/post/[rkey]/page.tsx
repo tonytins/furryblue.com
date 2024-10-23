@@ -11,7 +11,6 @@ import rehypeSanitize from "rehype-sanitize";
 import me from "#/assets/me_blue_square.jpg";
 import { Code, Paragraph, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
-import { cx } from "#/lib/cx";
 
 export const dynamic = "force-static";
 
