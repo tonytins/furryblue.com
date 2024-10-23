@@ -9,7 +9,7 @@ export async function purgeCache(formData: FormData) {
     revalidatePath("/", "page");
     revalidatePath("/post/[rkey]", "page");
   } else {
-    throw new Error("Invalid password");
+    throw new Error("Invalid password, got: " + password);
   }
   redirect('/')
 }
