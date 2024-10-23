@@ -16,7 +16,7 @@ const sans = Inter({
 const serif = Libre_Baskerville({
   variable: "--font-libre-baskerville",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "400",
   style: "italic",
 });
 

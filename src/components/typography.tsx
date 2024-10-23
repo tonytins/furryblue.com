@@ -13,28 +13,28 @@ export function Title({
   switch (level) {
     case "h1":
       style =
-        "scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl mt-8 first:mt-0";
+        "text-4xl lg:text-5xl";
       break;
     case "h2":
       style =
-        "scroll-m-20 border-b pb-2 font-bold text-3xl tracking-tight mt-8 first:mt-0";
+        "border-b pb-2 text-3xl";
       break;
     case "h3":
-      style = "scroll-m-20 text-2xl font-bold tracking-tight mt-8 first:mt-0";
+      style = "text-2xl";
       break;
     case "h4":
-      style = "scroll-m-20 text-xl font-bold tracking-tight mt-8 first:mt-0";
+      style = "text-xl";
       break;
     case "h5":
-      style = "scroll-m-20 text-lg font-bold tracking-tight mt-8 first:mt-0";
+      style = "text-lg";
       break;
     case "h6":
-      style = "scroll-m-20 text-base font-bold tracking-tight mt-8 first:mt-0";
+      style = "text-base";
       break;
   }
 
   return (
-    <Tag className={cx("font-serif uppercase", style, className)} {...props} />
+    <Tag className={cx("font-serif font-bold italic tracking-tight scroll-m-20 uppercase mt-8 first:mt-0", style, className)} {...props} />
   );
 }
 
