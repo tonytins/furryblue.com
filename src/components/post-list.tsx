@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
+import {
+  type ComAtprotoRepoListRecords,
+  type ComWhtwndBlogEntry,
+} from "@atcute/client/lexicons";
 
 import { bsky, MY_DID } from "#/lib/bsky";
 
@@ -37,7 +40,8 @@ export async function PostList() {
   });
 }
 
-function drafts(record: { value: ComWhtwndBlogEntry.Record }) {
-  // if (process.env.NODE_ENV === "development") return true;
-  return record.value.visibility === 'public';
+function drafts(record: ComAtprotoRepoListRecords.Record) {
+  if (process.env.NODE_ENV === "development") return true;
+  const post = record.value as ComWhtwndBlogEntry.Record;
+  return post.visibility === "public";
 }
