@@ -7,11 +7,13 @@ import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
 import rehypeSanitize from "rehype-sanitize";
 
+import { Footer } from "#/components/footer";
 import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
 
 export const dynamic = "force-static";
+export const revalidate = 60 * 60; // 1 hour
 
 export async function generateMetadata({
   params,
@@ -148,6 +150,22 @@ export default async function BlogPage({
           </Markdown>
         </article>
       </main>
+      <Footer />
     </div>
   );
+}
+
+// prefetch at build time
+export async function generateStaticParams() {
+  const posts = await bsky.get("com.atproto.repo.listRecords", {
+    params: {
+      repo: MY_DID,
+      collection: "com.whtwnd.blog.entry",
+      // todo: pagination
+    },
+  });
+
+  return posts.data.records.map((post) => ({
+    rkey: post.uri.split("/").pop(),
+  }));
 }

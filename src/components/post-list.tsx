@@ -4,7 +4,7 @@ import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { bsky, MY_DID } from "#/lib/bsky";
 
 import { PostInfo } from "./post-info";
-import { Paragraph, Title } from "./typography";
+import { Title } from "./typography";
 
 export async function PostList() {
   const posts = await bsky.get("com.atproto.repo.listRecords", {
