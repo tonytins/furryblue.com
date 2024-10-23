@@ -60,8 +60,8 @@ export default async function BlogPage({
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-dvh py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">
-        <article className="w-full">
-          <div className="space-y-4 w-full pb-2">
+        <article className="w-full space-y-8">
+          <div className="space-y-4 w-full">
             <Link
               href="/"
               className="hover:underline hover:underline-offset-4 font-medium"
@@ -78,7 +78,6 @@ export default async function BlogPage({
             <div className="diagonal-pattern w-full h-3" />
           </div>
           <Markdown
-            className="mt-12"
             rehypePlugins={[rehypeSanitize]}
             components={{
               h1: (props) => <Title level="h1" {...props} />,
