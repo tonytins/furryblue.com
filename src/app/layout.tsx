@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import localFont from "next/font/local";
@@ -9,7 +10,7 @@ import { cx } from "#/lib/cx";
 const sans = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400","500", "700"],
+  weight: ["400", "500", "700"],
 });
 
 const serif = Libre_Baskerville({
@@ -46,6 +47,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
