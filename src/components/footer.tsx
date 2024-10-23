@@ -25,7 +25,7 @@ export function Footer() {
         <svg width={16} height={16} viewBox="0 0 24 24">
           <path d={GithubIcon.path} />
         </svg>
-        Github
+        GitHub
       </a>
     </footer>
   );
