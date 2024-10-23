@@ -5,10 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
-import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
 
-import me from "#/assets/me_blue_square.jpg";
+import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
 
@@ -67,30 +66,11 @@ export default async function BlogPage({
               Back
             </Link>
             <Title>{entry.title}</Title>
-            <Paragraph>
-              <Image
-                width={14}
-                height={14}
-                src={me}
-                alt="Samuel's profile picture"
-                className="inline rounded-full mr-1 mb-0.5"
-              />
-              <a
-                href={`https://bsky.app/profile/${MY_DID}`}
-                className="hover:underline hover:underline-offset-4"
-              >
-                Samuel
-              </a>{" "}
-              {entry.createdAt && (
-                <>
-                  &middot;{" "}
-                  <time dateTime={entry.createdAt}>
-                    {date(new Date(entry.createdAt))}
-                  </time>
-                </>
-              )}{" "}
-              &middot; {readingTime(entry.content).text}
-            </Paragraph>
+            <PostInfo
+              content={entry.content}
+              createdAt={entry.createdAt}
+              includeAuthor
+            />
             <div className="diagonal-pattern w-full h-3" />
           </div>
           <Markdown
@@ -171,7 +151,3 @@ export default async function BlogPage({
     </div>
   );
 }
-
-const { format: date } = new Intl.DateTimeFormat("en-GB", {
-  dateStyle: "medium",
-});

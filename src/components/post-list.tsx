@@ -1,10 +1,9 @@
-import { ClockIcon } from "lucide-react";
 import Link from "next/link";
 import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
-import readingTime from "reading-time";
 
 import { bsky, MY_DID } from "#/lib/bsky";
 
+import { PostInfo } from "./post-info";
 import { Paragraph, Title } from "./typography";
 
 export async function PostList() {
@@ -30,10 +29,7 @@ export async function PostList() {
             <Title className="text-lg" level="h3">
               {post.title}
             </Title>
-            <Paragraph>
-              <ClockIcon className="text-inherit inline size-3" />{" "}
-              {readingTime(post.content).text}
-            </Paragraph>
+            <PostInfo content={post.content} createdAt={post.createdAt} />
           </div>
         </article>
       </Link>
