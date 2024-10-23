@@ -15,7 +15,7 @@ export async function PostList() {
     },
   });
 
-  return posts.data.records.map((record) => {
+  return posts.data.records.filter(drafts).map((record) => {
     const post = record.value as ComWhtwndBlogEntry.Record;
     const rkey = record.uri.split("/").pop();
     return (
@@ -35,4 +35,9 @@ export async function PostList() {
       </Link>
     );
   });
+}
+
+function drafts(record: { value: ComWhtwndBlogEntry.Record }) {
+  // if (process.env.NODE_ENV === "development") return true;
+  return record.value.visibility === 'public';
 }
