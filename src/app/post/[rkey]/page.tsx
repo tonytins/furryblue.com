@@ -35,6 +35,7 @@ export async function generateMetadata({
   return {
     title: entry.title + " — mozzius.dev",
     authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
+    description: entry.content.slice(0, 200) + "...",
   };
 }
 
