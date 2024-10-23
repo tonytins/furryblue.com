@@ -10,9 +10,16 @@ export default async function OpenGraphImage() {
   return new ImageResponse(
     (
       <div tw="h-full w-full bg-white flex flex-col justify-center items-center">
-        <h1 style={{ fontFamily: '"Libre Baskerville"', fontSize: 64 }}>
+        <h1
+          style={{
+            fontFamily: '"Libre Baskerville"',
+            fontSize: 64,
+            textTransform: "uppercase",
+          }}
+        >
           mozzius.dev
         </h1>
+        <h1 style={{ fontSize: 32 }}>a webbed site</h1>
       </div>
     ),
     {
