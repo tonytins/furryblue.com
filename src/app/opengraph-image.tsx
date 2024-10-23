@@ -20,6 +20,8 @@ export default async function OpenGraphImage() {
             fontFamily: '"Libre Baskerville"',
             fontSize: 80,
             textTransform: "uppercase",
+            fontWeight: 700,
+            fontStyle: "italic",
           }}
         >
           mozzius.dev
