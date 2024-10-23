@@ -153,6 +153,16 @@ export default async function BlogPage({
                   {...props}
                 />
               ),
+              img: ({ src, alt }) => (
+                <span className="block mt-8 w-full aspect-video relative">
+                  <Image
+                    src={src!}
+                    alt={alt!}
+                    className="object-contain"
+                    fill
+                  />
+                </span>
+              ),
             }}
           >
             {entry.content}
