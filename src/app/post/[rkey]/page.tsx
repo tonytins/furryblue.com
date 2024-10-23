@@ -55,7 +55,7 @@ export default async function BlogPage({
   const entry = post.data.value as ComWhtwndBlogEntry.Record;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
+    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-dvh py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">
         <article className="w-full">
           <div className="space-y-4 w-full pb-2">
