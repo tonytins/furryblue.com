@@ -13,7 +13,7 @@ export default async function OpenGraphImage() {
         <h1
           style={{
             fontFamily: '"Libre Baskerville"',
-            fontSize: 64,
+            fontSize: 80,
             textTransform: "uppercase",
           }}
         >
