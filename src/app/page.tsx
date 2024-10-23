@@ -2,7 +2,7 @@ import { Footer } from "#/components/footer";
 import { PostList } from "#/components/post-list";
 import { Title } from "#/components/typography";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 export const revalidate = 60 * 60; // 1 hour
 
 export default function Home() {

@@ -1,1 +1,1 @@
-export {twMerge as cx} from 'tailwind-merge'
+export { twMerge as cx } from "tailwind-merge";
