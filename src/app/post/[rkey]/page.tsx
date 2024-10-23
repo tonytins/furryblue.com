@@ -13,7 +13,7 @@ import { Code, Paragraph, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
 
 export const dynamic = "force-static";
-export const revalidate = 60 * 60; // 1 hour
+export const revalidate = 3600; // 1 hour
 
 export async function generateMetadata({
   params,
