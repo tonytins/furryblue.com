@@ -10,7 +10,7 @@ export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
   const fontData = await readFile(
-    join(process.cwd(), "./fonts/LibreBaskerville-Bold.ttf"),
+    join(process.cwd(), "./src/app/fonts/LibreBaskerville-Bold.ttf"),
   ).then((res) => Uint8Array.from(res).buffer);
   return new ImageResponse(
     (
