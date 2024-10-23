@@ -26,7 +26,7 @@ export function PostInfo({
             height={14}
             src={me}
             alt="Samuel's profile picture"
-            className="inline rounded-full mr-1 mb-0.5"
+            className="inline rounded-full mr-1 mb-1"
           />
           <a
             href={`https://bsky.app/profile/${MY_DID}`}
