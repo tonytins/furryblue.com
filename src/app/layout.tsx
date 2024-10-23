@@ -42,7 +42,7 @@ export default function RootLayout({
           sans.variable,
           serif.variable,
           mono.variable,
-          "antialiased",
+          "antialiased font-sans",
         )}
       >
         {children}

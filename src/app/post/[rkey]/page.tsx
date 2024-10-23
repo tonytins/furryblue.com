@@ -1,13 +1,15 @@
 import { ArrowLeftIcon } from "lucide-react";
 import Markdown from "react-markdown";
 import { type Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
 import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
 
-import { Code, Paragraph, SANS, Title } from "#/components/typography";
+import me from "#/assets/me_blue_square.jpg";
+import { Code, Paragraph, Title } from "#/components/typography";
 import { bsky, MY_DID } from "#/lib/bsky";
 import { cx } from "#/lib/cx";
 
@@ -31,7 +33,7 @@ export async function generateMetadata({
   const entry = post.data.value as ComWhtwndBlogEntry.Record;
 
   return {
-    title: entry.title + "— mozzius.dev",
+    title: entry.title + " — mozzius.dev",
     authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
   };
 }
@@ -54,7 +56,7 @@ export default async function BlogPage({
   const entry = post.data.value as ComWhtwndBlogEntry.Record;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-inter)]">
+    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">
         <article className="w-full">
           <div className="space-y-4 w-full pb-2">
@@ -67,7 +69,13 @@ export default async function BlogPage({
             </Link>
             <Title>{entry.title}</Title>
             <Paragraph>
-              By{" "}
+              <Image
+                width={14}
+                height={14}
+                src={me}
+                alt="Samuel's profile picture"
+                className="inline rounded-full mr-1 mb-0.5"
+              />
               <a
                 href={`https://bsky.app/profile/${MY_DID}`}
                 className="hover:underline hover:underline-offset-4"
@@ -87,7 +95,7 @@ export default async function BlogPage({
             <div className="diagonal-pattern w-full h-3" />
           </div>
           <Markdown
-            className={cx(SANS, "mt-12")}
+            className="mt-12"
             rehypePlugins={[rehypeSanitize]}
             components={{
               h1: (props) => <Title level="h1" {...props} />,
