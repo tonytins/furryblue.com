@@ -141,6 +141,7 @@ export default async function BlogPage({
                     src={src!}
                     alt={alt!}
                     className="object-contain"
+                    quality={90}
                     fill
                   />
                 </span>
