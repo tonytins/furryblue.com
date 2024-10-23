@@ -20,7 +20,7 @@ export default async function OpenGraphImage() {
         {
           name: "Libre Baskerville",
           data: await fetch(
-            new URL("../fonts/LibreBaskerville-Bold.ttf", import.meta.url),
+            new URL("./fonts/LibreBaskerville-Bold.ttf", import.meta.url),
           ).then((res) => res.arrayBuffer()),
         },
       ],
