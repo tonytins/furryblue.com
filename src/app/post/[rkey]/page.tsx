@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
+import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
 
 import { Footer } from "#/components/footer";
@@ -35,7 +36,7 @@ export async function generateMetadata({
   return {
     title: entry.title + " — mozzius.dev",
     authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
-    description: entry.content.slice(0, 100) + "...",
+    description: `by Samuel · ${readingTime(entry.content).text}`,
   };
 }
 
