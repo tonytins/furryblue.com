@@ -2,8 +2,8 @@ import RSS from "rss";
 
 import { getPosts } from "#/lib/api";
 
-const dynamic = "force-static";
-const revalidate = 3600; // 1 hour
+export const dynamic = "force-static";
+export const revalidate = 3600; // 1 hour
 
 export async function GET() {
   const posts = await getPosts();
