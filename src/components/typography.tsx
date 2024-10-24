@@ -34,7 +34,7 @@ export function Title({
   }
 
   return (
-    <Tag className={cx("font-serif font-bold italic tracking-tight scroll-m-20 uppercase mt-8 [&>code]:text-[length:inherit] first:mt-0", style, className)} {...props} />
+    <Tag className={cx("font-serif font-bold italic text-balance tracking-tight scroll-m-20 uppercase mt-8 [&>code]:text-[length:inherit] first:mt-0", style, className)} {...props} />
   );
 }
 
@@ -42,7 +42,7 @@ export function Paragraph({
   className,
   ...props
 }: React.HTMLProps<HTMLParagraphElement>) {
-  return <p className={cx("font-sans", className)} {...props} />;
+  return <p className={cx("font-sans text-pretty", className)} {...props} />;
 }
 
 export function Code({ className, ...props }: React.HTMLProps<HTMLElement>) {
