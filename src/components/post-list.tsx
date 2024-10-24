@@ -1,25 +1,15 @@
 import Link from "next/link";
-import {
-  type ComAtprotoRepoListRecords,
-  type ComWhtwndBlogEntry,
-} from "@atcute/client/lexicons";
 
-import { bsky, MY_DID } from "#/lib/bsky";
+import { getPosts } from "#/lib/api";
 
 import { PostInfo } from "./post-info";
 import { Title } from "./typography";
 
 export async function PostList() {
-  const posts = await bsky.get("com.atproto.repo.listRecords", {
-    params: {
-      repo: MY_DID,
-      collection: "com.whtwnd.blog.entry",
-      // todo: pagination
-    },
-  });
+  const posts = await getPosts();
 
-  return posts.data.records.filter(drafts).map((record) => {
-    const post = record.value as ComWhtwndBlogEntry.Record;
+  return posts.map((record) => {
+    const post = record.value;
     const rkey = record.uri.split("/").pop();
     return (
       <Link key={record.uri} href={`/post/${rkey}`} className="w-full group">
@@ -38,10 +28,4 @@ export async function PostList() {
       </Link>
     );
   });
-}
-
-function drafts(record: ComAtprotoRepoListRecords.Record) {
-  if (process.env.NODE_ENV === "development") return true;
-  const post = record.value as ComWhtwndBlogEntry.Record;
-  return post.visibility === "public";
 }

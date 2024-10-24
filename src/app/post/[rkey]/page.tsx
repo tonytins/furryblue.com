@@ -11,6 +11,7 @@ import rehypeSanitize from "rehype-sanitize";
 import { Footer } from "#/components/footer";
 import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
+import { getPosts } from "#/lib/api";
 import { bsky, MY_DID } from "#/lib/bsky";
 
 export const dynamic = "force-static";
@@ -159,15 +160,8 @@ export default async function BlogPage({
 
 // prefetch at build time
 export async function generateStaticParams() {
-  const posts = await bsky.get("com.atproto.repo.listRecords", {
-    params: {
-      repo: MY_DID,
-      collection: "com.whtwnd.blog.entry",
-      // todo: pagination
-    },
-  });
-
-  return posts.data.records.map((post) => ({
+  const posts = await getPosts();
+  return posts.map((post) => ({
     rkey: post.uri.split("/").pop(),
   }));
 }
