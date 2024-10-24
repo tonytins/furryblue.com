@@ -1,4 +1,9 @@
+import rehypeFormat from "rehype-format";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
 import RSS from "rss";
+import { unified } from "unified";
 
 import { getPosts } from "#/lib/api";
 
@@ -18,7 +23,13 @@ export async function GET() {
   for (const post of posts) {
     rss.item({
       title: post.value.title ?? "Untitled",
-      description: post.value.content,
+      description: await unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeFormat)
+        .use(rehypeStringify)
+        .process(post.value.content)
+        .then((v) => v.toString()),
       url: `https://mozzius.dev/post/${post.uri.split("/").pop()}`,
       date: new Date(post.value.createdAt ?? Date.now()),
     });
