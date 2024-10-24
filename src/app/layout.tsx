@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
+import NextPlausible from "next-plausible";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -44,6 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <NextPlausible domain="https://plausible.mozzius.dev" selfHosted />
+      </head>
       <body
         className={cx(
           sans.variable,
