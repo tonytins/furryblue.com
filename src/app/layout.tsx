@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import NextPlausible from "next-plausible";
 import { Inter, Libre_Baskerville } from "next/font/google";
@@ -46,10 +45,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <NextPlausible domain="mozzius.dev"
-        customDomain="https://plausible.mozzius.dev"
-        trackOutboundLinks
-        selfHosted />
+        <NextPlausible
+          domain="mozzius.dev"
+          customDomain="https://plausible.mozzius.dev"
+          trackOutboundLinks
+          selfHosted
+        />
       </head>
       <body
         className={cx(
@@ -60,7 +61,6 @@ export default function RootLayout({
         )}
       >
         {children}
-        <Analytics />
       </body>
     </html>
   );
