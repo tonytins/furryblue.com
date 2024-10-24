@@ -26,7 +26,7 @@ export async function GET() {
 
   return new Response(rss.xml(), {
     headers: {
-      "content-type": "application/xml+rss",
+      "content-type": "application/rss+xml",
     },
   });
 }
