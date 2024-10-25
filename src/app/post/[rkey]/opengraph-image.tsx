@@ -1,8 +1,9 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 import { getPost } from "#/lib/api";
 
-export const runtime = "edge";
 export const size = {
   width: 1200,
   height: 630,
@@ -16,14 +17,11 @@ export default async function OpenGraphImage({
 }) {
   const { rkey } = await params;
 
-  const post = await getPost(rkey);
+  const fontData = await readFile(
+    join(process.cwd(), "./src/assets/fonts/LibreBaskerville-Italic.ttf"),
+  ).then((res) => Uint8Array.from(res).buffer);
 
-  const fontData = await fetch(
-    new URL(
-      "../../../assets/fonts/LibreBaskerville-Italic.ttf",
-      import.meta.url,
-    ),
-  ).then((res) => res.arrayBuffer());
+  const post = await getPost(rkey);
 
   return new ImageResponse(
     (
