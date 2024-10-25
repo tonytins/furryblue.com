@@ -3,7 +3,6 @@ import Markdown from "react-markdown";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { type ComWhtwndBlogEntry } from "@atcute/client/lexicons";
 import { Code as SyntaxHighlighter } from "bright";
 import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
@@ -11,8 +10,8 @@ import rehypeSanitize from "rehype-sanitize";
 import { Footer } from "#/components/footer";
 import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
-import { getPosts } from "#/lib/api";
-import { bsky, MY_DID } from "#/lib/bsky";
+import { getPost, getPosts } from "#/lib/api";
+import { MY_DID } from "#/lib/bsky";
 
 export const dynamic = "force-static";
 export const revalidate = 3600; // 1 hour
@@ -24,20 +23,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { rkey } = await params;
 
-  const post = await bsky.get("com.atproto.repo.getRecord", {
-    params: {
-      repo: MY_DID,
-      rkey: rkey,
-      collection: "com.whtwnd.blog.entry",
-    },
-  });
-
-  const entry = post.data.value as ComWhtwndBlogEntry.Record;
+  const post = await getPost(rkey);
 
   return {
-    title: entry.title + " — mozzius.dev",
+    title: post.value.title + " — mozzius.dev",
     authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
-    description: `by Samuel · ${readingTime(entry.content).text}`,
+    description: `by Samuel · ${readingTime(post.value.content).text}`,
   };
 }
 
@@ -48,15 +39,7 @@ export default async function BlogPage({
 }) {
   const { rkey } = await params;
 
-  const post = await bsky.get("com.atproto.repo.getRecord", {
-    params: {
-      repo: MY_DID,
-      rkey: rkey,
-      collection: "com.whtwnd.blog.entry",
-    },
-  });
-
-  const entry = post.data.value as ComWhtwndBlogEntry.Record;
+  const post = await getPost(rkey);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-dvh py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
@@ -70,10 +53,10 @@ export default async function BlogPage({
               <ArrowLeftIcon className="inline size-4 align-middle mb-px mr-1" />
               Back
             </Link>
-            <Title>{entry.title}</Title>
+            <Title>{post.value.title}</Title>
             <PostInfo
-              content={entry.content}
-              createdAt={entry.createdAt}
+              content={post.value.content}
+              createdAt={post.value.createdAt}
               includeAuthor
             />
             <div className="diagonal-pattern w-full h-3" />
@@ -149,7 +132,7 @@ export default async function BlogPage({
               ),
             }}
           >
-            {entry.content}
+            {post.value.content}
           </Markdown>
         </article>
       </main>
