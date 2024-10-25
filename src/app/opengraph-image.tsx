@@ -2,6 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
+import { loadGoogleFont } from "#/lib/google-font";
+
 export const size = {
   width: 1200,
   height: 630,
@@ -9,9 +11,10 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
-  const fontData = await readFile(
-    join(process.cwd(), "./src/assets/fonts/LibreBaskerville-Italic.ttf"),
-  ).then((res) => Uint8Array.from(res).buffer);
+  const fontData = await loadGoogleFont(
+    "Libre+Baskerville:ital@1",
+    "MOZZIUS.DEV a webbed site",
+  );
 
   return new ImageResponse(
     (
@@ -20,12 +23,11 @@ export default async function OpenGraphImage() {
           style={{
             fontFamily: '"Libre Baskerville"',
             fontSize: 80,
-            textTransform: "uppercase",
             fontWeight: 700,
             fontStyle: "italic",
           }}
         >
-          mozzius.dev
+          MOZZIUS.DEV
         </h1>
         <h1
           style={{
