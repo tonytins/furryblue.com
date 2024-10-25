@@ -47,7 +47,7 @@ export function BlueskyPostEmbed({ uri }: { uri: string }) {
 
   return (
     <div
-      className="mt-8 flex max-w-[600px] w-full bluesky-embed"
+      className="mt-6 flex max-w-[600px] w-full bluesky-embed"
       data-uri={uri}
     >
       <iframe
