@@ -9,7 +9,7 @@ export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
   const fontData = await fetch(
-    new URL("./fonts/LibreBaskerville-Italic.ttf", import.meta.url),
+    new URL("../assets/fonts/LibreBaskerville-Italic.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

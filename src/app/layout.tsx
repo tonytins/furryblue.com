@@ -21,7 +21,7 @@ const serif = Libre_Baskerville({
 });
 
 const mono = localFont({
-  src: "./fonts/BerkeleyMono-Regular.woff2",
+  src: "../assets/fonts/BerkeleyMono-Regular.woff2",
   variable: "--font-berkeley-mono",
   weight: "400",
 });
