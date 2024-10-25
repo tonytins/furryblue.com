@@ -3,11 +3,13 @@ import Markdown from "react-markdown";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { Code as SyntaxHighlighter } from "bright";
 import readingTime from "reading-time";
-import rehypeSanitize from "rehype-sanitize";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
+import remarkGfm from "remark-gfm";
 
+import { BlueskyPostEmbed } from "#/components/bluesky-embed";
 import { Footer } from "#/components/footer";
 import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
@@ -63,7 +65,26 @@ export default async function BlogPage({
             <div className="diagonal-pattern w-full h-3" />
           </div>
           <Markdown
-            rehypePlugins={[rehypeSanitize]}
+            remarkPlugins={[remarkGfm]}
+            remarkRehypeOptions={{ allowDangerousHtml: true }}
+            rehypePlugins={[
+              rehypeRaw,
+              [
+                rehypeSanitize,
+                {
+                  ...defaultSchema,
+                  attributes: {
+                    ...defaultSchema.attributes,
+                    blockquote: [
+                      ...(defaultSchema.attributes?.blockquote ?? []),
+                      "dataBlueskyUri",
+                      "dataBlueskyCid",
+                    ],
+                  },
+                } satisfies typeof defaultSchema,
+              ],
+            ]}
+            className="[&>.bluesky-embed]:mt-8 [&>.bluesky-embed]:mb-0"
             components={{
               h1: (props) => <Title level="h1" {...props} />,
               h2: (props) => <Title level="h2" {...props} />,
@@ -77,12 +98,15 @@ export default async function BlogPage({
                   {...props}
                 />
               ),
-              blockquote: (props) => (
-                <blockquote
-                  className="mt-6 border-l-2 pl-4 italic border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                  {...props}
-                />
-              ),
+              blockquote: (props) =>
+                "data-bluesky-uri" in props ? (
+                  <BlueskyPostEmbed uri={props["data-bluesky-uri"] as string} />
+                ) : (
+                  <blockquote
+                    className="mt-6 border-l-2 pl-4 italic border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
+                    {...props}
+                  />
+                ),
               ul: (props) => (
                 <ul
                   className="my-6 ml-6 list-disc [&>ul]:my-2 [&>ol]:my-2 [&>li]:mt-2"
@@ -138,7 +162,6 @@ export default async function BlogPage({
         </article>
       </main>
       <Footer />
-      <Script src="https://embed.bsky.app/static/embed.js" async />
     </div>
   );
 }
