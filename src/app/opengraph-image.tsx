@@ -9,9 +9,14 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
+  console.log(
+    join(process.cwd(), "./src/app/fonts/LibreBaskerville-Italic.ttf"),
+  );
+
   const fontData = await readFile(
     join(process.cwd(), "./src/app/fonts/LibreBaskerville-Italic.ttf"),
   ).then((res) => Uint8Array.from(res).buffer);
+
   return new ImageResponse(
     (
       <div tw="h-full w-full bg-white flex flex-col justify-center items-center">

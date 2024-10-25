@@ -17,6 +17,10 @@ export default async function OpenGraphImage({
 }) {
   const { rkey } = await params;
 
+  console.log(
+    join(process.cwd(), "./src/app/fonts/LibreBaskerville-Italic.ttf"),
+  );
+
   const fontData = await readFile(
     join(process.cwd(), "./src/app/fonts/LibreBaskerville-Italic.ttf"),
   ).then((res) => Uint8Array.from(res).buffer);
