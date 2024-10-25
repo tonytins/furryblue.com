@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { Code as SyntaxHighlighter } from "bright";
 import readingTime from "reading-time";
 import rehypeSanitize from "rehype-sanitize";
@@ -137,6 +138,7 @@ export default async function BlogPage({
         </article>
       </main>
       <Footer />
+      <Script src="https://embed.bsky.app/static/embed.js" async />
     </div>
   );
 }
