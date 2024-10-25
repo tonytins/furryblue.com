@@ -7,7 +7,7 @@ const EMBED_URL = "https://embed.bsky.app";
 
 export function BlueskyPostEmbed({ uri }: { uri: string }) {
   const id = useId();
-  const path = usePathname();
+  const pathname = usePathname();
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
@@ -38,6 +38,13 @@ export function BlueskyPostEmbed({ uri }: { uri: string }) {
     };
   }, [id]);
 
+  const ref_url =
+    "https://" + process.env.VERCEL_PROJECT_PRODUCTION_URL + pathname;
+
+  const searchParams = new URLSearchParams();
+  searchParams.set("id", id);
+  searchParams.set("ref_url", encodeURIComponent(ref_url));
+
   return (
     <div
       className="mt-8 flex max-w-[600px] w-full bluesky-embed"
@@ -47,9 +54,7 @@ export function BlueskyPostEmbed({ uri }: { uri: string }) {
         className="w-full block border-none flex-grow"
         style={{ height }}
         data-bluesky-uri={uri}
-        src={`${EMBED_URL}/embed/${uri.slice("at://".length)}?id=${id}&ref_url=${encodeURIComponent(
-          `https://mozzius.dev${path}`,
-        )}`}
+        src={`${EMBED_URL}/embed/${uri.slice("at://".length)}?${searchParams.toString()}`}
         width="100%"
         frameBorder="0"
         scrolling="no"
