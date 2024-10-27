@@ -14,9 +14,9 @@ export async function GET() {
   const posts = await getPosts();
 
   const rss = new RSS({
-    title: "mozzius.dev",
-    feed_url: "https://mozzius.dev/rss",
-    site_url: "https://mozzius.dev",
+    title: "furryblue.com",
+    feed_url: "https://furryblue.com/rss",
+    site_url: "https://furryblue.com",
     description: "a webbed site",
   });
 
@@ -30,7 +30,7 @@ export async function GET() {
         .use(rehypeStringify)
         .process(post.value.content)
         .then((v) => v.toString()),
-      url: `https://mozzius.dev/post/${post.uri.split("/").pop()}`,
+      url: `https://furryblue.com/post/${post.uri.split("/").pop()}`,
       date: new Date(post.value.createdAt ?? Date.now()),
     });
   }

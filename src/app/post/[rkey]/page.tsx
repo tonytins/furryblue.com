@@ -30,8 +30,8 @@ export async function generateMetadata({
 
   return {
     title: post.value.title + " — mozzius.dev",
-    authors: [{ name: "Samuel", url: `https://bsky.app/profile/${MY_DID}` }],
-    description: `by Samuel · ${readingTime(post.value.content).text}`,
+    authors: [{ name: "Tony Bark", url: `https://bsky.app/profile/${MY_DID}` }],
+    description: `by Tony Bark · ${readingTime(post.value.content).text}`,
   };
 }
 
