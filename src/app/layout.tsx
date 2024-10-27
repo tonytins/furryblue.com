@@ -27,12 +27,12 @@ const mono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "mozzius.dev",
+  title: "furryblue.com",
   description: "a webbed site",
   alternates: {
-    canonical: "https://mozzius.dev",
+    canonical: "https://furryblue.com",
     types: {
-      "application/rss+xml": "https://mozzius.dev/rss",
+      "application/rss+xml": "https://furryblue.com/rss",
     },
   },
 };
@@ -46,8 +46,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <NextPlausible
-          domain="mozzius.dev"
-          customDomain="https://plausible.mozzius.dev"
+          domain="furryblue.com"
+          customDomain="https://plausible.furryblue.com"
           trackOutboundLinks
           selfHosted
         />

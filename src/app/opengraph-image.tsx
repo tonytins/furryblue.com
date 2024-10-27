@@ -11,7 +11,7 @@ export const contentType = "image/png";
 export default async function OpenGraphImage() {
   const fontData = await loadGoogleFont(
     "Libre+Baskerville:ital@1",
-    "MOZZIUS.DEV a webbed site",
+    "FURRYBLUE.COM a webbed site",
   );
 
   return new ImageResponse(
@@ -25,7 +25,7 @@ export default async function OpenGraphImage() {
             fontStyle: "italic",
           }}
         >
-          MOZZIUS.DEV
+          FURRYBLUE.COM
         </h1>
         <h1
           style={{

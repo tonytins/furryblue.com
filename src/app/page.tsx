@@ -12,7 +12,7 @@ export default function Home() {
         <div>
           <span className="font-bold text-xs">a webbed site</span>
           <Title level="h1" className="m-0">
-            mozzius.dev
+            Furry Blue
           </Title>
         </div>
 
