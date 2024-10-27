@@ -1,4 +1,4 @@
-import { siBluesky as BlueskyIcon, siRss as RSSIcon, siGithub as GithubIcon } from "simple-icons";
+import { siBluesky as BlueskyIcon, siMastodon as MastodonIcon, siRss as RSSIcon, siGithub as GithubIcon } from "simple-icons";
 
 import { MY_DID } from "#/lib/bsky";
 
@@ -15,6 +15,17 @@ export function Footer() {
           <path d={BlueskyIcon.path} />
         </svg>
         Bluesky
+      </a>
+      <a
+        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        href={`https://tonybark.com/@tonytins`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
+          <path d={MastodonIcon.path} />
+        </svg>
+        Mastdoon
       </a>
       <a
         className="flex items-center gap-2 hover:underline hover:underline-offset-4"
