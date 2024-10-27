@@ -11,7 +11,7 @@ export const contentType = "image/png";
 export default async function OpenGraphImage() {
   const fontData = await loadGoogleFont(
     "Libre+Baskerville:ital@1",
-    "FURRYBLUE.COM a webbed site",
+    "Furry Blue Bog, ramblings of a furry blue fennec",
   );
 
   return new ImageResponse(
@@ -25,7 +25,7 @@ export default async function OpenGraphImage() {
             fontStyle: "italic",
           }}
         >
-          FURRYBLUE.COM
+          Furry Blue Blog
         </h1>
         <h1
           style={{
@@ -34,7 +34,7 @@ export default async function OpenGraphImage() {
             fontFamily: '"Libre Baskerville"',
           }}
         >
-          a webbed site
+          ramblings of a furry blue fennec
         </h1>
       </div>
     ),

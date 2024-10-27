@@ -1,4 +1,4 @@
-import { siBluesky as BlueskyIcon, siGithub as GithubIcon } from "simple-icons";
+import { siBluesky as BlueskyIcon, siRss as RSSIcon, siGithub as GithubIcon } from "simple-icons";
 
 import { MY_DID } from "#/lib/bsky";
 
@@ -26,6 +26,17 @@ export function Footer() {
           <path d={GithubIcon.path} />
         </svg>
         GitHub
+      </a>
+      <a
+        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        href="https://furryblue.com/rss"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
+          <path d={RSSIcon.path} />
+        </svg>
+        RSS
       </a>
     </footer>
   );

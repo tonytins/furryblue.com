@@ -27,8 +27,8 @@ const mono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "furryblue.com",
-  description: "a webbed site",
+  title: "Furry Blue Blog",
+  description: "ramblings of a furry blue fennec",
   alternates: {
     canonical: "https://furryblue.com",
     types: {
