@@ -1,21 +1,31 @@
 import { Footer } from "#/components/footer";
 import { PostList } from "#/components/post-list";
+import Image from "next/image";
 import { Title } from "#/components/typography";
+import logo from "#/assets/fb-banner.png";
+import backgroundImage from "#/assets/docbg.png";
+import ErrorImage from "#/assets/docbg.png";
+import { AlignCenter } from "lucide-react";
+import { url } from "inspector";
 
 export const dynamic = "force-static";
 export const revalidate = 3600; // 1 hour
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-dvh p-8 pb-20 gap-16 sm:p-20">
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage.src})`,
+        backgroundRepeat: "repeat",
+      }}
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-dvh p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px]">
         <div>
-          <span className="font-bold text-xs">ramblings of a furry blue fennec</span>
-          <Title level="h1" className="m-0">
-            Furry Blue Blog
-          </Title>
+          <Image
+            src={logo}
+            alt="The Furry Blue DJ"
+          />
         </div>
-
         <div className="flex flex-col gap-4 w-full">
           <PostList />
         </div>
