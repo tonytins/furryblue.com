@@ -1,5 +1,6 @@
 import { Footer } from "#/components/footer";
 import { PostList } from "#/components/post-list";
+import Link from 'next/link'
 import Image from "next/image";
 import { Title } from "#/components/typography";
 import backgroundImage from "#/assets/docbg.png";
@@ -21,12 +22,12 @@ export default function Home() {
             className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-dvh p-8 pb-20 gap-16 sm:p-20">
             <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px]">
                 <div>
-                    <a href="/">
+                    <Link href="/">
                         <Image
                             src={ErrorImage}
                             alt="Bad dog!"
                         />
-                    </a>
+                    </Link>
                 </div>
                 Page Not Found
             </main>
