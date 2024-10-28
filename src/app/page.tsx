@@ -1,7 +1,7 @@
 import { Footer } from "#/components/footer";
 import { PostList } from "#/components/post-list";
 import Image from "next/image";
-import logo from "#/assets/fb-banner.png";
+import logo from "#/assets/fb-banner-white.svg";
 import backgroundImage from "#/assets/docbg.png";
 
 export const dynamic = "force-static";
