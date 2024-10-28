@@ -1,12 +1,8 @@
 import { Footer } from "#/components/footer";
 import { PostList } from "#/components/post-list";
 import Image from "next/image";
-import { Title } from "#/components/typography";
 import logo from "#/assets/fb-banner.png";
 import backgroundImage from "#/assets/docbg.png";
-import ErrorImage from "#/assets/docbg.png";
-import { AlignCenter } from "lucide-react";
-import { url } from "inspector";
 
 export const dynamic = "force-static";
 export const revalidate = 3600; // 1 hour
