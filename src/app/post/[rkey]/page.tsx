@@ -16,8 +16,6 @@ import { Code, Paragraph, Title } from "#/components/typography";
 import { getPost, getPosts } from "#/lib/api";
 import { MY_DID } from "#/lib/bsky";
 
-import backgroundImage from "#/assets/docbg.png";
-
 export const dynamic = "force-static";
 export const revalidate = 3600; // 1 hour
 
@@ -48,10 +46,6 @@ export default async function BlogPage({
 
   return (
     <div
-      style={{
-        backgroundImage: `url(${backgroundImage.src})`,
-        backgroundRepeat: "repeat",
-      }}
       className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-dvh py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
       <link rel="alternate" href={post.uri} />
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">

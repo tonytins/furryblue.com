@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #e8e8d0;
+  --foreground: #171717;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #003366;
     --foreground: #ededed;
   }
-} */
+}
 
 body {
   color: var(--foreground);
@@ -29,13 +29,13 @@ body {
 .diagonal-pattern {
   background-color: transparent;
   background: repeating-linear-gradient(-45deg,
-      #ffffff,
-      #ffffff 4px,
+      #000000,
+      #000000 4px,
       transparent 4px,
       transparent 10px);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   .diagonal-pattern {
     background: repeating-linear-gradient(-45deg,
         #ffffff,
@@ -43,5 +43,4 @@ body {
         transparent 4px,
         transparent 10px);
   }
-
-} */
+}

@@ -29,7 +29,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-white">
+          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
             <path d={BlueskyIcon.path} />
           </svg>
           Bluesky
@@ -40,7 +40,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-white">
+          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
             <path d={MastodonIcon.path} />
           </svg>
           Mastdoon
@@ -54,7 +54,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-white">
+          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
             <path d={GithubIcon.path} />
           </svg>
           GitHub
@@ -65,7 +65,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-white">
+          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
             <path d={PaypalIcon.path} />
           </svg>
           PayPal
@@ -78,7 +78,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-white">
+          <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white">
             <path d={RSSIcon.path} />
           </svg>
           RSS
