@@ -5,6 +5,7 @@ export function NavBar() {
         <div className="navbar">
             <Link href="/">Home</Link>
             <Link href="links">Links</Link>
+            <Link href="#">About</Link>
         </div>
     );
 }
