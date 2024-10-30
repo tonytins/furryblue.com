@@ -10,6 +10,7 @@ import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
 
 import { BlueskyPostEmbed } from "#/components/bluesky-embed";
+import { Banner } from "#/components/banner";
 import { Footer } from "#/components/footer";
 import { PostInfo } from "#/components/post-info";
 import { Code, Paragraph, Title } from "#/components/typography";
@@ -49,6 +50,7 @@ export default async function BlogPage({
       className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-dvh py-8 px-4 xs:px-8 pb-20 gap-16 sm:p-20">
       <link rel="alternate" href={post.uri} />
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px] overflow-hidden">
+        <Banner />
         <article className="w-full space-y-8">
           <div className="space-y-4 w-full">
             <Link

@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* MS Frontpage's Folio-inspired theme */
 :root {
   --background: #e8e8d0;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #003366;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -26,6 +20,39 @@ body {
   }
 }
 
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  overflow: auto;
+  border-color: #000000;
+  border: solid 0.1em;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #660066;
+  color: #ffffff;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
 .diagonal-pattern {
   background-color: transparent;
   background: repeating-linear-gradient(-45deg,
@@ -35,7 +62,29 @@ body {
       transparent 10px);
 }
 
+/* Cartoon Network's D.O.C.-inspired theme */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #003366;
+    --foreground: #ededed;
+  }
+
+  .navbar {
+    width: 100%;
+    background-color: #000000;
+    overflow: auto;
+    border: none;
+  }
+
+  .navbar a:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .navbar a {
+    color: #ffffff;
+  }
+
   .diagonal-pattern {
     background: repeating-linear-gradient(-45deg,
         #ffffff,
