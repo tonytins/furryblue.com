@@ -1,6 +1,5 @@
 import { Footer } from "#/components/footer";
 import { Banner } from "#/components/banner";
-import Link from 'next/link'
 import Image from "next/image";
 import ErrorImage from "#/assets/404.png";
 
