@@ -5,7 +5,7 @@ import {
 } from "simple-icons";
 import Image from "next/image";
 
-import rating from "#/assets/ratings/rating_NYRc.gif";
+import rating from "#/assets/ratings/rating_14c.gif";
 import commons from "#/assets/commons/cc-zero.png";
 import { MY_DID } from "#/lib/bsky";
 
