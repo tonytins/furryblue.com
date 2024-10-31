@@ -20,9 +20,9 @@ export default function Page() {
                 <div className="mb-5">
                     <p>Search engines help you find what you're looking for, which is great, but they'll never show you something new.</p>
                 </div>
-                <div className="mb-10">
+                <div className="mb-10 mt-1">
                     <div className="mb-5">
-                        <h2 className="text-2xl font-extrabold">Around the Web <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
+                        <h2 className="text-2xl font-extrabold">World Wide Web <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
                             <path d={Html5Icon.path} />
                         </svg></h2>
                         <h3 className="text-sm">Check out these websites by other people!</h3>
@@ -42,64 +42,68 @@ export default function Page() {
                         </Link>
                     </div>
                 </div>
-                <div className="mb-10">
+                <div className="mb-10 mt-5">
                     <div className="mb-5">
-                        <h2 className="text-2xl font-extrabold">Across the ATmosphere <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
-                            <path d={BlueskyIcon.path} />
+                        <h2 className="text-2xl font-extrabold">Archives <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
+                            <path d={ArchveIcon.path} />
                         </svg></h2>
-                        <h3 className="text-sm">Find me elsewhere across Bluesky's vast, open ecosystem.</h3>
+                        <h3 className="text-sm">Take a step into the Wayback Machine with me.</h3>
                     </div>
                     <div className="flex grid grid-cols-3 gap-4 w-full max-w-[600px] overflow-hidden content-center text-center">
                         <Link className="hover:underline hover:underline-offset-4"
-                            href="https://frontpage.fyi/profile/tonybark.com">
-                            Frontpage
-                        </Link>
-                        <Link
-                            className="hover:underline hover:underline-offset-4"
-                            href="https://whtwnd.com/tonybark.com"
-                        >
-                            WhiteWind
+                            href="https://web.archive.org/web/20040615010309/http://www.dcfdengine32truck16.com/">
+                            DCFD Engine 32
                         </Link>
                         <Link className="hover:underline hover:underline-offset-4"
-                            href="https://smokesignal.events/did:plc:adgodmx5hrrdiz4bvgcbfas3">
-                            SmokeSignal
+                            href="https://tonytins.neocities.org/doc/">
+                            Furry Blue DOC
                         </Link>
                         <Link className="hover:underline hover:underline-offset-4"
-                            href="https://linkat.blue/tonybark.com">
-                            Linkat
+                            href="https://tonytins.neocities.org/">
+                            Furry Blue DJ
+                        </Link>
+                        <Link className="hover:underline hover:underline-offset-4"
+                            href="https://web.archive.org/web/20050603022350/http://www.generationtrance.com/">
+                            Generation Trance
+                        </Link>
+                        <Link className="hover:underline hover:underline-offset-4"
+                            href="https://web.archive.org/web/20240621020802/http://travisuped.com/">
+                            Travisuped's Domain
+                        </Link>
+                        <Link className="hover:underline hover:underline-offset-4"
+                            href="https://web.archive.org/web/20041012013958/http://www.creekradio.net/">
+                            Creek Radio
+                        </Link>
+                        <Link className="hover:underline hover:underline-offset-4"
+                            href="https://web.archive.org/web/20191221215234/http://www.wufflecomics.com/">
+                            Wuffle Comics
                         </Link>
                     </div>
-                    <div className="mb-10">
+                    <div className="mb-10 mt-5">
                         <div className="mb-5">
-                            <h2 className="text-2xl font-extrabold">Archives <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
-                                <path d={ArchveIcon.path} />
+                            <h2 className="text-2xl font-extrabold">The ATmosphere <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
+                                <path d={BlueskyIcon.path} />
                             </svg></h2>
-                            <h3 className="text-sm">Take a step into the Wayback Machine with me.</h3>
+                            <h3 className="text-sm">Find me elsewhere across Bluesky's vast, open ecosystem.</h3>
                         </div>
                         <div className="flex grid grid-cols-3 gap-4 w-full max-w-[600px] overflow-hidden content-center text-center">
                             <Link className="hover:underline hover:underline-offset-4"
-                                href="https://web.archive.org/web/20040615010309/http://www.dcfdengine32truck16.com/">
-                                DCFD Engine 32
+                                href="https://frontpage.fyi/profile/tonybark.com">
+                                Frontpage
+                            </Link>
+                            <Link
+                                className="hover:underline hover:underline-offset-4"
+                                href="https://whtwnd.com/tonybark.com"
+                            >
+                                WhiteWind
                             </Link>
                             <Link className="hover:underline hover:underline-offset-4"
-                                href="https://tonytins.neocities.org/doc/">
-                                Furry Blue DOC
+                                href="https://smokesignal.events/did:plc:adgodmx5hrrdiz4bvgcbfas3">
+                                SmokeSignal
                             </Link>
                             <Link className="hover:underline hover:underline-offset-4"
-                                href="https://tonytins.neocities.org/">
-                                Furry Blue DJ
-                            </Link>
-                            <Link className="hover:underline hover:underline-offset-4"
-                                href="https://web.archive.org/web/20050603022350/http://www.generationtrance.com/">
-                                Generation Trance
-                            </Link>
-                            <Link className="hover:underline hover:underline-offset-4"
-                                href="https://web.archive.org/web/20240621020802/http://travisuped.com/">
-                                Travisuped's Domain
-                            </Link>
-                            <Link className="hover:underline hover:underline-offset-4"
-                                href="https://web.archive.org/web/20041012013958/http://www.creekradio.net/">
-                                Creek Radio
+                                href="https://linkat.blue/tonybark.com">
+                                Linkat
                             </Link>
                         </div>
                     </div>
