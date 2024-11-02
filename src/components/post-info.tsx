@@ -25,7 +25,7 @@ export function PostInfo({
             width={14}
             height={14}
             src={me}
-            alt="Tony Bark's profile picture"
+            alt="Profile picture"
             className="inline rounded-full mr-1 mb-1"
           />
           <a
