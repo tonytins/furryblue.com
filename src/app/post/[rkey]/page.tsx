@@ -1,8 +1,6 @@
-import { ArrowLeftIcon } from "lucide-react";
 import Markdown from "react-markdown";
 import { type Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Code as SyntaxHighlighter } from "bright";
 import readingTime from "reading-time";
 import rehypeRaw from "rehype-raw";
