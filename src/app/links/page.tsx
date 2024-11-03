@@ -1,10 +1,10 @@
 import { Footer } from "#/components/footer";
 import { Banner } from "#/components/banner";
 import {
-    siBluesky as BlueskyIcon,
     siHtml5 as Html5Icon,
-    siInternetarchive as ArchveIcon
+    siInternetarchive as ArchveIcon,
 } from "simple-icons";
+import { AtSign as AtIcon } from "lucide-react";
 
 import Link from 'next/link'
 
@@ -24,9 +24,9 @@ export default function Page() {
                 </div>
                 <div className="mb-10 mt-1">
                     <div className="mb-5">
-                        <h2 className="text-2xl font-extrabold">World Wide Web <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
+                        <h2 className="text-2xl font-extrabold"><svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
                             <path d={Html5Icon.path} />
-                        </svg></h2>
+                        </svg> World Wide Web</h2>
                         <h3 className="text-sm">See what else the internet holds.</h3>
                     </div>
                     <div className={linkLayout}>
@@ -50,13 +50,17 @@ export default function Page() {
                             href="https://wikifur.com/">
                             WikiFur
                         </Link>
+                        <Link className={linkStyle}
+                            href="https://zgfgaming.com/">
+                            ZGF Gaming
+                        </Link>
                     </div>
                 </div>
                 <div className="mb-10 mt-5">
                     <div className="mb-5">
-                        <h2 className="text-2xl font-extrabold">Archives <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
+                        <h2 className="text-2xl font-extrabold"><svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
                             <path d={ArchveIcon.path} />
-                        </svg></h2>
+                        </svg> Archives</h2>
                         <h3 className="text-sm">Take a step into the Wayback Machine with me.</h3>
                     </div>
                     <div className={linkLayout}>
@@ -91,9 +95,7 @@ export default function Page() {
                     </div>
                     <div className="mb-10 mt-5">
                         <div className="mb-5">
-                            <h2 className="text-2xl font-extrabold">The ATmosphere <svg width={16} height={16} viewBox="0 0 24 24" className="fill-black dark:fill-white inline-flex">
-                                <path d={BlueskyIcon.path} />
-                            </svg></h2>
+                            <h2 className="text-2xl font-extrabold"><AtIcon className="text-inherit inline size-4 mb-0.5" /> The ATmosphere</h2>
                             <h3 className="text-sm">Find me elsewhere across Bluesky's vast, open ecosystem.</h3>
                         </div>
                         <div className={linkLayout}>
