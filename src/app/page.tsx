@@ -1,21 +1,12 @@
-import { Footer } from "#/components/footer";
-import { PostList } from "#/components/post-list";
-import { Banner } from "#/components/banner";
+import Link from 'next/link'
+import { HouseIcon, AppWindowIcon, GlobeIcon } from "lucide-react";
 
-export const dynamic = "force-static";
-export const revalidate = 3600; // 1 hour
-
-export default function Home() {
+export function NavBar() {
   return (
-    <div
-      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-dvh p-8 pb-20 gap-16 sm:p-20">
-      <Banner />
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[600px]">
-        <div className="flex flex-col gap-4 w-full">
-          <PostList />
-        </div>
-      </main>
-      <Footer />
+    <div className="navbar">
+      <Link href="/"><HouseIcon className="text-inherit inline size-3.5 mb-0.5" /> Home</Link>
+      <Link href="/links"><GlobeIcon className="text-inherit inline size-3.5 mb-0.5" /> Links</Link>
+      <Link href="/apps"><AppWindowIcon className="text-inherit inline size-3.5 mb-0.5" /> Apps</Link>
     </div>
   );
 }
