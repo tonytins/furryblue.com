@@ -1,11 +1,6 @@
 import { Footer } from "#/components/footer";
 import { Banner } from "#/components/banner";
-import {
-    siHtml5 as Html5Icon,
-    siInternetarchive as ArchveIcon,
-    siBluesky as BlueskyIcon
-} from "simple-icons";
-import { Code, Paragraph, Title } from "#/components/typography";
+import { Title } from "#/components/typography";
 import Link from 'next/link'
 
 export const dynamic = "force-static";
